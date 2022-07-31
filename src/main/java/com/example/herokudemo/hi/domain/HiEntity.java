@@ -1,4 +1,4 @@
-package com.example.herokudemo.domain;
+package com.example.herokudemo.hi.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

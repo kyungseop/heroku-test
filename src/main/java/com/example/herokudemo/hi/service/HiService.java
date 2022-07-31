@@ -1,10 +1,10 @@
-package com.example.herokudemo.service;
+package com.example.herokudemo.hi.service;
 
-import com.example.herokudemo.converter.HiConverter;
-import com.example.herokudemo.domain.HiEntity;
-import com.example.herokudemo.model.HiCreateRequest;
-import com.example.herokudemo.model.HiDto;
-import com.example.herokudemo.repository.HiRepository;
+import com.example.herokudemo.hi.converter.HiConverter;
+import com.example.herokudemo.hi.domain.HiEntity;
+import com.example.herokudemo.hi.model.HiCreateRequest;
+import com.example.herokudemo.hi.model.HiDto;
+import com.example.herokudemo.hi.repository.HiRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;

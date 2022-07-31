@@ -1,8 +1,8 @@
-package com.example.herokudemo.converter;
+package com.example.herokudemo.hi.converter;
 
 
-import com.example.herokudemo.domain.HiEntity;
-import com.example.herokudemo.model.HiDto;
+import com.example.herokudemo.hi.domain.HiEntity;
+import com.example.herokudemo.hi.model.HiDto;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

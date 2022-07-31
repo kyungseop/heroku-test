@@ -1,4 +1,4 @@
-package com.example.herokudemo.model;
+package com.example.herokudemo.hi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

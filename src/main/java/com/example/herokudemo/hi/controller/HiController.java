@@ -1,9 +1,9 @@
-package com.example.herokudemo.controller;
+package com.example.herokudemo.hi.controller;
 
 
-import com.example.herokudemo.model.HiCreateRequest;
-import com.example.herokudemo.model.HiDto;
-import com.example.herokudemo.service.HiService;
+import com.example.herokudemo.hi.model.HiCreateRequest;
+import com.example.herokudemo.hi.model.HiDto;
+import com.example.herokudemo.hi.service.HiService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

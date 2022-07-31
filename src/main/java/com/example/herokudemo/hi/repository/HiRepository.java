@@ -1,6 +1,6 @@
-package com.example.herokudemo.repository;
+package com.example.herokudemo.hi.repository;
 
-import com.example.herokudemo.domain.HiEntity;
+import com.example.herokudemo.hi.domain.HiEntity;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
