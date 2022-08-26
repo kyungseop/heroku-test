@@ -1,0 +1,24 @@
+### Create paper
+
+POST {{host}}/paper
+Content-Type: application/json
+
+< input/paper_create.json
+
+
+### Get papers
+
+GET {{host}}/paper
+Content-Type: application/json
+
+### Get paper
+
+GET {{host}}/paper/1
+Content-Type: application/json
+
+### Update paper
+
+PUT {{host}}/paper/1
+Content-Type: application/json
+
+< input/paper_update.json
