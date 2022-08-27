@@ -1,6 +1,6 @@
 ### Create paper
 
-POST {{host}}/paper
+POST {{host}}/papers
 Content-Type: application/json
 
 < input/paper_create.json
@@ -8,17 +8,22 @@ Content-Type: application/json
 
 ### Get papers
 
-GET {{host}}/paper
+GET {{host}}/papers
 Content-Type: application/json
 
 ### Get paper
 
-GET {{host}}/paper/1
+GET {{host}}/papers/4
 Content-Type: application/json
 
 ### Update paper
 
-PUT {{host}}/paper/1
+PUT {{host}}/papers/4
 Content-Type: application/json
 
 < input/paper_update.json
+
+### Delete paper
+
+DELETE {{host}}/papers/4
+Content-Type: application/json

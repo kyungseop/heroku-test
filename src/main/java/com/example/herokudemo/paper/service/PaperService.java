@@ -46,4 +46,8 @@ public class PaperService {
             throw new PaperNotFoundException("Paper (" + id + ") was not found.");
         }
     }
+
+    public void remove(Long id) {
+        paperRepository.deleteById(id);
+    }
 }

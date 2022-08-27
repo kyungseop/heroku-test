@@ -9,6 +9,7 @@ import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,27 +25,33 @@ public class PaperController {
     private final PaperService paperService;
 
 
-    @PostMapping("/paper")
+    @PostMapping("/papers")
     public ResponseEntity<Long> createPaper(@RequestBody @Valid PaperCreateRequest request) {
         return ResponseEntity.ok(paperService.create(request));
     }
 
-    @GetMapping("/paper")
+    @GetMapping("/papers")
     public ResponseEntity<List<PaperResponse>> getPaperList(@RequestParam(defaultValue = "1") Integer page,
                                                             @RequestParam(defaultValue = "10") Integer pageSize) {
         return ResponseEntity.ok(paperService.getAlLPaperList());
     }
 
-    @GetMapping("/paper/{id}")
+    @GetMapping("/papers/{id}")
     public ResponseEntity<PaperResponse> getPaper(@PathVariable Long id) {
         return ResponseEntity.ok(paperService.getPaper(id));
     }
 
 
-    @PutMapping("/paper/{id}")
+    @PutMapping("/papers/{id}")
     public ResponseEntity<Void> updatePaper(@PathVariable Long id, @RequestBody @Valid PaperUpdateRequest request) {
         paperService.update(id, request);
         return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/papers/{id}")
+    public ResponseEntity<Void> removePaper(@PathVariable Long id) {
+        paperService.remove(id);
+        return ResponseEntity.ok().build();
     }
 
 
