@@ -1,1 +1,8 @@
-rootProject.name = 'heroku-demo'
+rootProject.name = 'papers'
+
+include 'admin'
+include 'api'
+include 'core'
+include 'common'
+
+include 'clients:feign-common'
