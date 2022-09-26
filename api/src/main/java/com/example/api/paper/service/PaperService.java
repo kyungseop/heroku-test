@@ -4,13 +4,21 @@ import com.example.api.exception.PaperNotFoundException;
 import com.example.api.paper.converter.PaperConverter;
 import com.example.api.paper.domain.PaperEntity;
 import com.example.api.paper.model.command.request.PaperCreateRequest;
+import com.example.api.paper.model.command.request.PaperSearchRequest;
 import com.example.api.paper.model.command.request.PaperUpdateRequest;
 import com.example.api.paper.model.command.response.PaperResponse;
+import com.example.api.paper.repository.PaperQueryRepository;
 import com.example.api.paper.repository.PaperRepository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import com.querydsl.core.QueryResults;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class PaperService {
 
     private final PaperRepository paperRepository;
+    private final PaperQueryRepository paperQueryRepository;
 
     public Long create(PaperCreateRequest request) {
         PaperEntity paperEntity = PaperEntity.create(request);
@@ -31,8 +40,10 @@ public class PaperService {
         return opPaper.map(PaperEntity::to).orElseThrow(() -> new PaperNotFoundException("Paper (" + id + ") was not found."));
     }
 
-    public List<PaperResponse> getAlLPaperList() {
-        return paperRepository.findAll().stream().map(PaperConverter::convert).collect(Collectors.toList());
+    @Transactional(readOnly = true)
+    public Page<PaperResponse> search(PaperSearchRequest request, Pageable pageable) {
+        QueryResults<PaperResponse> results = paperQueryRepository.search(request, pageable);
+        return new PageImpl<>(results.getResults(), pageable, results.getTotal());
     }
 
     @Transactional
