@@ -127,7 +127,7 @@ configure(requiredRestDocsProject) {
     }
 
     dependencies {
-        ////testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+        testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
         testImplementation("com.epages:restdocs-api-spec:0.16.2")
         testImplementation("com.epages:restdocs-api-spec-mockmvc:0.16.2")
 
@@ -145,26 +145,24 @@ configure(requiredRestDocsProject) {
     }
 
     tasks.named("asciidoctor") {
-        inputs.dir.snippetsDir
+        inputs.dir snippetsDir
         configurations "asciidoctorEx"
-        baseDirFollowsSourceDir()
+        baseDirFollowsSourceDir() // 원본파일 .adoc 디렉터리 기준
     }
 
     openapi3 {
         servers = [
-                {
-                    url = "http://localhost:8080"
-                }
+                {url = "http://localhost:8092"}
         ]
-        title = "api openapi spec"
-        //version = "${projectVersion}"
+        title = "fx-api OpenApi Specification"
+        version = "${projectVersion}"
         format = "yaml"
     }
 
     bootJar {
-//        from("${asciidoctor.outputDir}") {
-//            into "BOOT-INF/classes/static/docs"
-//        }
+        from("${asciidoctor.outputDir}") {
+            into "BOOT-INF/classes/static/docs"
+        }
         from("swagger-ui") {
             into "BOOT-INF/classes/static/swagger-ui"
         }

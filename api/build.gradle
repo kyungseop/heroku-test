@@ -1,3 +1,6 @@
+bootJar {
+    archiveFileName = 'api.jar'
+}
 
 dependencies {
 
