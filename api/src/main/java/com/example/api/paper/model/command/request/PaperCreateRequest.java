@@ -15,7 +15,9 @@ public class PaperCreateRequest {
     @NotBlank
     private String title;
     private String subTitle;
+    @NotBlank
     private String imageUrl;
+    @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String publishDate;
 }
